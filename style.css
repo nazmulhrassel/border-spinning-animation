@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "poppins", sans-serif;
+  background-color: #000;
+}
+.border-animation {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;   
+}
+
+.card {
+  width: 500px;
+  background-color: rgb(1, 22, 38);
+  text-align: center;
+  border-radius: 10px;
+  padding: 2rem;
+  position: relative;
+}
+.card h1 {
+  font-size: 20px;
+  color: white;
+  padding-bottom: 10px;
+}
+.card p {
+  color: white;  
+}
+
+.card::after{
+    content: " ";
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;    
+    z-index: -1;
+    border-radius: 10px;
+    background-image: conic-gradient(from var(--angle), transparent 70%, blue);
+    animation: spin 3s linear infinite;
+}
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin{
+    from {
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
